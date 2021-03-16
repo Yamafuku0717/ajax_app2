@@ -9,12 +9,12 @@ class PostsController < ApplicationController
   #end
 
   def create
-    @post = Post.new(post_params)
+    Post.create(post_params)
     redirect_to action: :index
   end
   
   private
   def post_params
-    params.require(:post).permit(:content)
+    params.permit(:content)
   end
 end

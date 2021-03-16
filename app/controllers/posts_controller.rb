@@ -9,8 +9,8 @@ class PostsController < ApplicationController
   #end
 
   def create
-    Post.create(post_params)
-    redirect_to action: :index
+    tekitou = Post.create(post_params)
+    render json:{ post: tekitou }
   end
   
   private

@@ -1,3 +1,3 @@
 class Post < ApplicationRecord
-  validates :content, length: { minimum: 5 }
+  validates :content, presence: true
 end

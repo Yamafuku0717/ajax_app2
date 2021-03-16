@@ -1,19 +1,20 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    @posts = Post.order("id DESC")
   end
 
-  def new
-    @post = Post.new
-  end
+  #def new
+    #@post = Post.new
+  #end
 
   def create
-    @post = Post.new(post_params)
+    tekitou = Post.create(post_params)
+    render json:{ post: tekitou }
   end
   
   private
   def post_params
-    params.require(:post).permit(:content)
+    params.permit(:content)
   end
 end
